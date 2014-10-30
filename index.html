@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Ethan Richardson's Page</title>
     <link rel="stylesheet" type="text/css" href="homeStyle.css">
+    <script>
+        function writeCurrent(){ 
+            document.getElementById("curPage").innerHTML="You are here!"; 
+        }
+    </script>
 </head>
 
 <body>
@@ -16,7 +21,7 @@
             <ul>
                 <li><a href ="./Lab1">Project1</a></li>
                 <li><a href ="./Lab2">Project2</a></li>
-                <li><a href =".">Project3</a></li>
+                <li id="curPage"><a href ="#" onclick="writeCurrent()">Project3</a></li>
                 <li><a href ="./Lab4">Project4</a></li>
                 <li><a href ="http://www2.cs.siu.edu/~erichardson/Lab5">Project5</a></li>
                 <li><a href ="./Lab6">Project6</a></li>
