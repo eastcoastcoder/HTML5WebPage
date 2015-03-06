@@ -1,12 +1,30 @@
-function validateForm(){
+var whitespace = "Field must not contain whitespace characters.";
+var blank = "Field must not be blank.";
+var trueNum = "Field must contain numerical characters.";
+var falseNum = "Field must not contain numerical characters.";
+var trueAlpha = "Field must contain alphabetical characters.";
+var falseAlpha = "Field must not contain alphabetical characters.";
 
-    var whitespace = "Field must not contain whitespace characters.";
-    var blank = "Field must not be blank.";
-    var trueNum = "Field must contain numerical characters.";
-    var falseNum = "Field must not contain numerical characters.";
-    var trueAlpha = "Field must contain alphabetical characters.";
-    var falseAlpha = "Field must not contain alphabetical characters.";
+function nameerr(name) {
+    document.getElementById("nameerr").innerHTML='';
+    //not alphabet, is whitespace
+    if(!name.match(/^[a-zA-Z]+$/)){
+        document.getElementById("nameerr").innerHTML=trueAlpha;
+        
+        if(name.match(".*\\d.*"))
+            document.getElementById("nameerr").innerHTML=falseNum;
+        
+        if(name.match(" "))
+            document.getElementById("nameerr").innerHTML=whitespace;
+    }
     
+    //Matches Empty String
+    if(!name.match(/\S/))
+        document.getElementById("nameerr").innerHTML=blank;
+}
+
+function validateForm() {
+
     var first = document.getElementById("firstName").value;
     var last = document.getElementById("lastName").value;
     var age = document.getElementById("ageInput").value;
@@ -23,6 +41,7 @@ function validateForm(){
     //*******************************
     //START NAME VALIDATION (nameerr)
     //*******************************
+    /*
     document.getElementById("nameerr").innerHTML='';
     
     //not alphabet, is whitespace
@@ -42,7 +61,7 @@ function validateForm(){
     //Matches Empty String
     if((!first.match(/\S/) || (!last.match(/\S/))))
         document.getElementById("nameerr").innerHTML=blank;
-    
+    */
     //***********************************
     //START GENDER VALIDATION (gendererr)
     //***********************************
